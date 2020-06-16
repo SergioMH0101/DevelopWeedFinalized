@@ -19,6 +19,31 @@ public class AA_BlDTO {
 	private String pais;
 	private String documentacion;
 	
+	public AA_BlDTO() {
+		super();
+	}
+	public AA_BlDTO(Integer id_bl, String nombre_nave, int num_sello, String consignatario, String consignante, int peso,
+			int vol_cubico, String mercaderia, String tipo_carga, Date fecha_salida, Date fecha_arribo, int unidades,
+			String carga, String incoterms, String pais, String documentacion) {
+		super();
+		this.id_bl = id_bl;
+		this.nombre_nave = nombre_nave;
+		this.num_sello = num_sello;
+		this.consignatario = consignatario;
+		this.consignante = consignante;
+		this.peso = peso;
+		this.vol_cubico = vol_cubico;
+		this.mercaderia = mercaderia;
+		this.tipo_carga = tipo_carga;
+		this.fecha_salida = fecha_salida;
+		this.fecha_arribo = fecha_arribo;
+		this.unidades = unidades;
+		this.carga = carga;
+		this.incoterms = incoterms;
+		this.pais = pais;
+		this.documentacion = documentacion;
+	}
+	
 	public Integer getId_bl() {
 		return id_bl;
 	}
@@ -115,6 +140,4 @@ public class AA_BlDTO {
 	public void setDocumentacion(String documentacion) {
 		this.documentacion = documentacion;
 	}
-	
-
 }

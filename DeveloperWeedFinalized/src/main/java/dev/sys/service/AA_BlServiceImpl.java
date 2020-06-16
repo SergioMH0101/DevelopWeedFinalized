@@ -17,11 +17,11 @@ public class AA_BlServiceImpl implements AA_BlService{
 		return aa_blDAO.list();
 	}
 	@Override
-	public AA_BlDTO get(String id_bl) {
+	public AA_BlDTO get(int id_bl) {
 		return aa_blDAO.get(id_bl);
 	}
 	@Override
-	public int delete(String id_bl) {
+	public int delete(int id_bl) {
 		return aa_blDAO.delete(id_bl);
 	}
 	@Override

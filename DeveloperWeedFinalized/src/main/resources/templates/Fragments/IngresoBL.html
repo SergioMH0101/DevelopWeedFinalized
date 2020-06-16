@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8"/>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="/css/bootstrap.css" rel="stylesheet" />
+</head>
+<body>
+	<div class="container" th:fragment="ingresoBL">
+		<div class="input-group">
+            <div>
+                <span class="input-group-addon">Numero BL</span>
+                <input id="nro_bl" type="text" class="form-control" name="nro_bl">
+              </div>
+              <p>
+              <div>
+                <span class="input-group-addon">Nombre Nave </span>
+                <input id="nombre_nave" type="text" class="form-control" name="nombre_nave" required>
+              </div>
+               <div>
+                <span class="input-group-addon">Numero Sello</span>
+                <input id="nro_sello" type="text" class="form-control" name="nro_sello" required>
+              </div>
+                 <div>
+                <span class="input-group-addon">Consignatario</span>
+                <input id="consignatario" type="text" class="form-control" name="consignatario" required>
+              </div>
+               <div>
+                <span class="input-group-addon">Consignante</span>
+                <input id="consignate" type="text" class="form-control" name="consignante" required>
+              </div>
+                 <div>
+                <span class="input-group-addon">Peso</span>
+                <input id="peso" type="text" class="form-control" name="peso" required>
+              </div>
+              <div>
+                <span class="input-group-addon">Volumen Cubico</span>
+                <input id="vol_cubico" type="text" class="form-control" name="vol_cubico" required>
+              </div>
+              <div>
+                <span class="input-group-addon">Mercaderia</span>
+                <input id="mercaderia" type="text" class="form-control" name="mercaderia" required>
+              </div>
+              <div>
+                <span class="input-group-addon">Tipo Carga</span>
+                <input id="tipo_carga" type="text" class="form-control" name="tipo_carga" required>
+              </div>
+              <div>
+                <span class="input-group-addon">Fecha Salida</span>
+                <input id="fecha_salida" type="text" class="form-control" name="fecha_salida" required>
+              </div>
+              <div>
+                <span class="input-group-addon">Fecha Arribo</span>
+                <input id="fecha_arribo" type="text" class="form-control" name="fecha_arribo" required>
+              </div>
+              <div>
+                <span class="input-group-addon">Unidades</span>
+                <input id="unidades" type="text" class="form-control" name="unidades" required>
+              </div>
+              <div>
+                <span class="input-group-addon">Carga</span>
+                <input id="carga" type="text" class="form-control" name="carga" required>
+              </div>
+             <div>
+                <span class="input-group-addon">incoterms</span>
+                <input id="incoterms" type="text" class="form-control" name="incoterms" required>
+              </div>
+              <div>
+                <span class="input-group-addon">Pais</span>
+                <input id="Pais" type="text" class="form-control" name="Pais" required>
+              </div>
+              <div>
+                <span class="input-group-addon">Documentacion</span>
+                <input id="documentacion" type="text" class="form-control" name="documentacion" required>
+              </div>
+              <div class="btn-group">
+              <button type="button" class="btn btn-outline-primary btn-sml" onclick="BLController('insert')">Guardar</button>
+              <button type="button" class="btn btn-outline-primary btn-sml" onclick="javascript:BLController('update')">Actualizar</button>
+              <button type="button" class="btn btn-outline-primary btn-sml" onclick="javascript:BLController('delete')">Borrar</button>
+              <button type="button" class="btn btn-outline-primary btn-sml" onclick="javascript:BLController('list')">Listar</button>
+              </div>
+             <p>
+        </div>
+ 	</div>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+		<script src="/js/bootstrap.js" th:href="@{/js/bootstrap.js}"></script>
+		<script src="/BL.js"></script>
+</body>
+</html>

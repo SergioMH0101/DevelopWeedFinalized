@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8"/>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="/css/bootstrap.css" rel="stylesheet" />
+</head>
+<body>
+	<div class="container" th:fragment="ingresoProveedor">
+		<div>
+            <div class="input-group">
+                <span class="input-group-addon">Rut Proveedor</span>
+                <input id="rut_proveedor" type="text" class="form-control" name="rut_proveedor">
+              </div>
+              <p>
+              <div class="input-group">
+                <span class="input-group-addon">Nombre </span>
+                <input id="nombre_proveedor" type="text" class="form-control" name="nombre_proveedor" required>
+              </div>
+               <div class="input-group">
+                <span class="input-group-addon">Giro</span>
+                <input id="giro" type="text" class="form-control" name="giro" required>
+              </div>
+                 <div class="input-group">
+                <span class="input-group-addon">Contacto</span>
+                <input id="contacto" type="text" class="form-control" name="contacto" required>
+              </div>
+               <div class="input-group">
+                <span class="input-group-addon">Email</span>
+                <input id="email" type="text" class="form-control" name="email" required>
+              </div>
+              <div class="input-group">
+                <span class="input-group-addon">Direccion</span>
+                <input id="direccion" type="text" class="form-control" name="direccion" required>
+              </div>
+              <div class="input-group">
+                <span class="input-group-addon">Comuna</span>
+                <input id="comuna" type="text" class="form-control" name="comuna" required>
+              </div>
+              <div class="input-group">
+                <span class="input-group-addon">Region</span>
+                <input id="region" type="text" class="form-control" name="region" required>
+              </div>
+              <div class="input-group">
+                <span class="input-group-addon">Pais</span>
+                <input id="pais" type="text" class="form-control" name="pais" required>
+              </div>
+              <div class="input-group">
+                <span class="input-group-addon">Tipo Proveedor</span>
+                <input id="tipo_proveedor" type="text" class="form-control" name="tipo_proveedor" required>
+              </div>
+              <div>
+              <button type="button" class="btn btn-outline-primary" onclick="javascript:ingresoProvController('insertProv')">Guardar</button>
+              </div>
+             <p>
+        </div>
+ 	</div>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+		<script src="/js/bootstrap.js" th:href="@{/js/bootstrap.js}"></script>
+		<script src="/js/BL.js" th:href="@{/js/BL.js}"></script>
+</body>
+</html>
