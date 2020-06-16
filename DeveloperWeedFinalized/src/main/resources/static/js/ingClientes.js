@@ -7,15 +7,15 @@ function CLController(option){
 	
 	case "insertCliente":
 		var json = 
-	{
+		{
 			'rut_cliente': $("#rut_cliente").val(),
 			'nombre_cliente': $("#nombre_cliente").val(),
 			'giro': $("#giro").val(),
 			'email': $("#email").val(),
 			'telefono': $("#telefono").val(),
 			'comuna': $("#comuna").val(),
-			'direccion': $("#direccion").val(),
-	}
+			'direccion': $("#direccion").val()
+		}
 		var postData= JSON.stringify(json);
 		
 		$.ajax({

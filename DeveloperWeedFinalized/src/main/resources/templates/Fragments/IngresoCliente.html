@@ -6,8 +6,8 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="/css/bootstrap.css" rel="stylesheet" />
+    <script src="/js/jquery-3.4.1.js" th:href="@{/js/jquery-3.4.1.js}"></script>
     <script src="/js/ingClientes.js" th:href="@{/js/ingClientes.js}"></script>
-    <script src="/js/BL.js" th:href="@{/js/BL.js}"></script>
 </head>
 <body>
 	<div class="container" th:fragment="ingresoCliente">
@@ -42,13 +42,13 @@
                 <input id="direccion" type="text" class="form-control" name="direccion" required>
               </div>
               <div>
-              <button type="button" class="btn btn-outline-primary" onclick="javascript:CLController('insertCliente')">Guardar</button>
+              <button type="button" class="btn btn-outline-primary" onclick="CLController('insertCliente')">Guardar</button>
               </div>
              <p>
         </div>
         </div>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-		<script src="/js/bootstrap.js" th:href="@{/js/bootstrap.js}"></script>
+
+			<script src="/js/bootstrap.js" th:href="@{/js/bootstrap.js}"></script>
 		
 		
 </body>

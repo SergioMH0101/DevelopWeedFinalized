@@ -18,8 +18,8 @@ import dev.sys.model.dto.AA_BlDTO;
 import dev.sys.service.AA_BlService;
 
 @Controller
-@RequestMapping(value="/BL") //todo lo que tenga sales --direcciona a esta clase.
-public class BLController {
+@RequestMapping(value="/Bl") //todo lo que tenga sales --direcciona a esta clase.
+public class AA_BlController {
 	
 	@Autowired
 	AA_BlService aa_blService;
@@ -27,22 +27,11 @@ public class BLController {
 	@RequestMapping(value="/list")
 	public @ResponseBody List<AA_BlDTO> ajaxList(HttpServletRequest req,HttpServletResponse res){
 		return aa_blService.list();
-	}
-	
+	}	
 	@RequestMapping(value="/get")
 	public @ResponseBody AA_BlDTO ajaxGet(HttpServletRequest req,HttpServletResponse res){
-		return aa_blService.get(Integer.parseInt(req.getParameter("Id_bl")));
+		return aa_blService.get(Integer.parseInt(req.getParameter("id_bl")));
 	}
-	
-	/* Desde el JS viene como string de datos, hay que transformarlo a DTO
-	1)Capturar String de datos
-	2)Con la variable String, se recepciona la data. 
-	3)La clase Get Reader.lines, nos lee la data que viene desde Ajax. 
-	4)Luego se genera la colección de datos
-	5)Se ocupa la librería GSON de Google. Esta libería transforma el string de data que viene desde JavaScript y lo transforma en DTO
-	6)cuando se envía la fecha desde web a controlador, el formato es el formato de la vista. Hay que tranformar el formato.
-	 
-	 */
 	@RequestMapping(value="/insert")
 	public @ResponseBody int ajaxInsert(HttpServletRequest req,HttpServletResponse res){
 	
@@ -50,23 +39,13 @@ public class BLController {
 		String requestData;
 		try {
 			requestData = req.getReader().lines().collect(Collectors.joining());
-			
-			//cuando mandamos fecha desde web a controller, nos manda la fecha de cómo está en el cliente, por lo tanto lo dejamos como formato de java.sql
-			
-			
 			Gson gson=new GsonBuilder().setDateFormat("yyyy-MM-dd").serializeNulls().create();
-				
-			//transforma la estructura de datos que viene del javascript para enviarla a DTO. viende de requestData y lo manda a SalesDTO.class
-			AA_BlDTO sale =gson.fromJson(requestData, AA_BlDTO.class);
-		
-			rows= aa_blService.insert(sale);
+			AA_BlDTO bl =gson.fromJson(requestData, AA_BlDTO.class);	
+			rows= aa_blService.insert(bl);
 		} catch (IOException e) {
 			e.printStackTrace();	
-		}
-		
-		return rows;
-		
-		
+		}		
+		return rows;	
 	}
 	
 	@RequestMapping(value="/update")
@@ -81,8 +60,7 @@ public class BLController {
 			rows= aa_blService.update(bl);
 		} catch (IOException e) {
 			e.printStackTrace();	
-		}
-		
+		}	
 		return rows;
 	}
 	
@@ -90,8 +68,8 @@ public class BLController {
 	public @ResponseBody int ajaxDelete(HttpServletRequest req,HttpServletResponse res){
 		int rows=0;
 		try {
-			rows= aa_blService.delete(Integer.parseInt(req.getParameter("Id_bl")));
-			System.out.println(req.getParameter("Id_bl"));
+			rows= aa_blService.delete(Integer.parseInt(req.getParameter("id_bl")));
+			System.out.println(req.getParameter("id_bl"));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

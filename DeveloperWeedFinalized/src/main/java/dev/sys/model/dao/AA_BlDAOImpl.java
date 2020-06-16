@@ -16,7 +16,7 @@ import dev.sys.model.dto.AA_BlDTO;
 @Repository
 @Transactional
 public class AA_BlDAOImpl implements AA_BlDAO {
-	private String list = "SELECT * FROM aa_bl ORDER BY id_bl";
+	private String list = "SELECT * FROM aa_bl";
 	private String select = "SELECT * FROM aa_bl WHERE id_bl=?";
 	private String insert = "INSERT INTO aa_bl VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 	private String update = "UPDATE aa_bl SET id_bl=?, nombre_nave=?, num_sello=?, consignatario=?,"+
@@ -59,6 +59,7 @@ public class AA_BlDAOImpl implements AA_BlDAO {
 		try {	
 			MapSqlParameterSource params =new MapSqlParameterSource();
 		
+			params.addValue("Id_bl", aa_blDTO.getId_bl(),Types.INTEGER);
 			params.addValue("Nombre_nave", aa_blDTO.getNombre_nave(), Types.VARCHAR);
 			params.addValue("Num_sello", aa_blDTO.getNum_sello(), Types.INTEGER);
 			
@@ -154,7 +155,8 @@ try {
 			
 			
 			MapSqlParameterSource params =new MapSqlParameterSource();
-		
+			
+			params.addValue("Id_bl", aa_blDTO.getId_bl(),Types.INTEGER);
 			params.addValue("Nombre_nave", aa_blDTO.getNombre_nave(), Types.VARCHAR);
 			params.addValue("Num_sello", aa_blDTO.getNum_sello(), Types.INTEGER);
 			

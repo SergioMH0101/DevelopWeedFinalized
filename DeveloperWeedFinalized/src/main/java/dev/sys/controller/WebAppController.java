@@ -15,9 +15,9 @@ public class WebAppController {
         return "agenteaduana";
     }
     
-    @RequestMapping("/bl")
+    @RequestMapping("/BL")
     public String getBL() {
-        return "bl";
+        return "IngresoBL";
     }
     @RequestMapping("/carga_page")
     public String getCarga(){
