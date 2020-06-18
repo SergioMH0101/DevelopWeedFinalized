@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en" 
+xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+
+<meta charset="UTF-8">
+<meta th:name="${_csrf.parameterName}" th:content="${_csrf.token}"/>
+
+<title>BL Editor</title>
+<link href="/css/bootstrap.css" rel="stylesheet" th:href="@{/css/bootstrap.css}"/>
+<link href="/css/bootstrap-table.min.css" rel="stylesheet" th:href="@{/css/bootstrap-table.min.css}"/>
+<link href="/css/globalstyle.css" rel="stylesheet" th:href="@{/css/globalstyle.css}"/>
+<script src="/js/jquery-3.4.1.js" th:href="@{/js/jquery-3.4.1.js}"></script>
+<script src="/js/BL.js" th:href="@{/js/BL.js}"></script>
+<script src="/js/BL.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+<body>
+	<div th:replace="fragments/header :: header">&n</div>
+	<div class="container">
+		<div class="panel panel-default" id="panel1">
+			<div class="panel-body">
+				<h3>Administrador BL</h3>	
+				<p>
+				<div class="btn-group">
+					<button type="button" class="btn btn-primary btn-sml" onclick="javascript:BLController('list')">List</button>
+					<button type="button" class="btn btn-primary btn-sml" onclick="javascript:BLController('get')">Buscar BL</button>
+					<button type="button" class="btn btn-primary btn-sml" onclick="javascript:BLController('insert')">Nuevo BL</button>
+					<button type="button" class="btn btn-primary btn-sml" onclick="javascript:BLController('update')">Actualizar BL</button>
+					<button type="button" class="btn btn-primary btn-sml" onclick="javascript:BLController('delete')">Eliminar BL</button>
+					
+				</div>
+				<p>
+				<div class="alert alert-danger" id="msg" hidden="true">
+				</div>
+				<p>
+				<div class="input-group">
+					<span class="input-group-addon">Numero bl</span>
+					<input type="number" class="form-control" id="Id_bl" >
+				</div>
+				<div class="input-group">
+					<span class="input-group-addon">Nombre nave </span>
+					<input type="text" class="form-control" id="Nombre_nave" >
+				</div>
+				<div class="input-group">
+					<span class="input-group-addon">Numero de sello</span>
+					<input type="number" class="form-control" id="Num_sello" >
+				</div>
+					<div class="input-group">
+					<span class="input-group-addon">Consignatario</span>
+					<input type="text" class="form-control" id="Consignatario" >
+				</div>
+					<div class="input-group">
+					<span class="input-group-addon">Consignante</span>
+					<input type="text" class="form-control" id="Consignante" >
+				</div>
+				<div class="input-group">
+					<span class="input-group-addon">Peso</span>
+					<input type="number" class="form-control" id="Peso" >
+				</div>
+				<div class="input-group">
+					<span class="input-group-addon">Volumen cubico </span>
+					<input type="number" class="form-control" id="Vol_cubico" >
+				</div>
+				<div class="input-group">
+					<span class="input-group-addon">Mercaderia</span>
+					<input type="text" class="form-control" id="Mercaderia" >
+				</div>
+					<div class="input-group">
+					<span class="input-group-addon">Tipo de carga</span>
+					<input type="text" class="form-control" id="Tipo_carga" >
+				</div>
+					<div class="input-group">
+					<span class="input-group-addon">Fecha de salida</span>
+					<input type="text" class="form-control" id="Fecha_salida" placeholder="dd/mm/aaaa" >
+				</div>
+				<div class="input-group">
+					<span class="input-group-addon">Fecha de arribo</span>
+					<input type="text" class="form-control" id="Fecha_arribo" placeholder="dd/mm/aaaa" >
+				</div>
+				<div class="input-group">
+					<span class="input-group-addon">Unidades </span>
+					<input type="number" class="form-control" id="Unidades" >
+				</div>
+				<div class="input-group">
+					<span class="input-group-addon">Carga</span>
+					<input type="text" class="form-control" id="Carga" >
+				</div>
+					<div class="input-group">
+					<span class="input-group-addon">Incoterms</span>
+					<input type="text" class="form-control" id="Incoterms" >
+				</div>
+					<div class="input-group">
+					<span class="input-group-addon">Pais</span>
+					<input type="text" class="form-control" id="Pais" >
+				</div>
+					<div class="input-group">
+					<span class="input-group-addon">Documentacion</span>
+					<input type="text" class="form-control" id="Documentacion" >
+				</div>								
+			</div>
+		</div>
+	
+	</div>
+
+
+	<div id="myModal" class="modal fade" role="dialog">
+		<div class="modal-dialog">
+		<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">Close</button>
+					<h4 class="modal-title">BL List</h4>
+				</div>
+				<div class="modal-body">
+					<div class="table-responsive" style='height:100%' id='tableDivContainer'>
+						<table class="table table-condensed" id='blTable' data-toggle="table" data-height="299">
+							<thead><tr>
+							
+								<th data-field="Id_bl">Id_BL</th>
+								<th data-field="Nombre_nave">Nombre de la nave </th>
+								<th data-field="Num_sello">Numero Sello</th>
+								<th data-field="Consignatario">Consignatario</th>
+								<th data-field="Consignante">Consignante</th>
+								<th data-field="Peso">Peso</th>
+								<th data-field="Vol_cubico">Volumen cubico </th>
+								<th data-field="Mercaderia">Mercaderia</th>
+								<th data-field="Tipo_carga">Tipo de carga </th>
+								<th data-field="Fecha_salida">Fecha de salida </th>
+								<th data-field="Fecha_arribo">Fecha arribo</th>
+								<th data-field="Unidades">Unidades </th>
+								<th data-field="Carga">Carga</th>
+								<th data-field="Incoterms">Incoterms</th>
+								<th data-field="Pais">Pais</th>
+								<th data-field="Documentacion">Documentacion</th>
+							</tr>
+							</thead>
+						</table>
+					</div>
+				</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>	
+					</div>
+			</div>
+		</div>
+	</div>
+
+
+	<script type="text/javascript" src="/js/bootstrap.js" th:href="@{/js/bootstrap.js}"></script>
+	<script type="text/javascript" src="/js/bootstrap-table.min.js" th:href="@{/js/bootstrap-table.min.js}"></script>
+</body>
+</html>

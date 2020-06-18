@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-<head>
-	<title>Comex</title>
+	<title>Phoenix Logistic</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-</head>
+
 	
 	<style>
 	html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 	</style>
 	<body class="w3-light-grey">
+		<div class="w3-bar w3-top w3-black w3-large" th:replace="fragments/header :: header"></div>
 	          <!-- Top container -->
-	        <div class="w3-bar w3-top w3-black w3-large" style="z-index:4">
+	        <!--  div class="w3-bar w3-top w3-black w3-large" style="z-index:4">
 	          <button class="w3-bar-item w3-button w3-hide-large w3-hover-none w3-hover-text-light-grey" onclick="w3_open();"><i class="fa fa-bars"></i>  Menu</button>
 	          <span class="w3-bar-item w3-right">Logo</span>
-	        </div>
+	        </div-->
 	
 	        <!-- Sidebar/menu -->
 	        <nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:300px;" id="mySidebar"><br>
@@ -26,7 +26,7 @@
 	              <img src="" class="w3-circle w3-margin-right" style="width:46px">
 	            </div>
 	            <div class="w3-col s8 w3-bar">
-	              <span>Bienvenido, <strong>Usuario</strong></span><br>
+	              <span>Bienvenido, <strong>[[${#httpServletRequest.remoteUser}]]</strong></span><br>
 	              <a href="#" class="w3-bar-item w3-button"><i class="fa fa-envelope"></i></a>
 	              <a href="#" class="w3-bar-item w3-button"><i class="fa fa-user"></i></a>
 	              <a href="#" class="w3-bar-item w3-button"><i class="fa fa-cog"></i></a>
@@ -57,70 +57,67 @@
 	        <!-- !PAGE CONTENT! -->
 	        <div class="w3-main" style="margin-left:300px;margin-top:43px;">
 	
-			          <!-- Header -->
-			          <header class="w3-container" style="padding-top:22px">
-			            <h5><b><i class="fa fa-dashboard"></i> Mi sala de trabajo</b></h5>
-			          </header>
-					<div class="btn-group w3-row-padding w3-margin-bottom">
-				            <div class="w3-quarter btn-group-addon">
-				              <div id="ingreso" class="w3-container w3-red w3-padding-16 w3-button" onclick="muestra_oculta('ingresoCli')">
-				                <div class="w3-left"><i class="fa fa-comment w3-xxxlarge"></i></div>
-				                <div class="w3-right"></div>
-				                <div class="w3-clear"></div>
-				                <h4>Ingreso nuevo cliente</h4>
-				              </div>
-				    		</div>
-							<div class="w3-quarter btn-group-addon">				              
-							<div class="w3-container w3-blue w3-button w3-padding-16" onclick="muestra_oculta2('ingresoBLs')">
-				                <div class="w3-left"><i class="fa fa-eye w3-xxxlarge"></i></div>
-				                <div class="w3-right">
-				                </div>
-				                <div class="w3-clear"></div>
-				                <h4>Ingreso BL</h4>
-				              </div>
-				            </div>
-							<div class="w3-quarter btn-group-addon">				              
-							<div class="w3-container w3-teal w3-padding-16 w3-button" onclick="muestra_oculta3('ingresoProveedores')">
-				                <div class="w3-left"><i class="fa fa-share-alt w3-xxxlarge"></i></div>
-				                <div class="w3-clear"></div>
-				                <h4>Nuevo Proveedor</h4>
-				              </div>
-				         	</div>
-							<div class="w3-quarter btn-group-addon">				              
-							<div class="w3-container w3-orange w3-text-white w3-padding-16 w3-button" onclick="">
-				                <div class="w3-left"><i class="fa fa-users w3-xxxlarge"></i></div>
-				                <div class="w3-right">
-				                  <h3>50</h3>
-				                </div>
-				                <div class="w3-clear">
-				                <h4>Usuarios</h4>
-				              </div>
-				            </div>
-				          </div>
-				        </div>
-	          
-	          <div class="w3-panel">
-	            <div class="w3-row-padding" style="margin:0 -16px">
-	              <div id="ingresoCli">
-	             <div th:replace="Fragments/IngresoCliente :: ingresoCliente" hidden="true">&nbsp;</div>
+	          <!-- Header -->
+	          <header class="w3-container" style="padding-top:22px">
+	            <h5><b><i class="fa fa-dashboard"></i> Mi sala de trabajo</b></h5>
+	          </header>
+			<div class="btn-group">
+	          <div class="w3-row-padding w3-margin-bottom">
+	            <div class="w3-quarter">
+	              <div id="ingreso" class="w3-container w3-red w3-padding-16 w3-button" onclick="javascripts:buttonopciones('ncliente')">
+	                <div class="w3-left"><i class="fa fa-comment w3-xxxlarge"></i></div>
+	                <div class="w3-right">
+	                </div>
+	                <div class="w3-clear"></div>
+	                <h4>Ingreso nuevo cliente</h4>
 	              </div>
-	              <div id="ingresoBLs">
-	              <div th:replace="Fragments/IngresoBL:: ingresoBL" hidden="true">&nbsp;</div> 
+	            </div>
+	            <div class="w3-quarter">
+	              <div class="w3-container w3-blue w3-button w3-padding-16" onclick="BL">
+	                <div class="w3-left"><i class="fa fa-eye w3-xxxlarge"></i></div>
+	                <div class="w3-right">
+	                </div>
+	                <div class="w3-clear"></div>
+	                <h4>Ingreso BL</h4>
 	              </div>
-	              <div id="ingresoProveedores">
-	             <div th:replace="Fragments/IngresoProveedor :: ingresoProveedor" hidden="true">&nbsp;</div>
+	            </div>
+	            <div class="w3-quarter">
+	              <div class="w3-container w3-teal w3-padding-16 w3-button" onclick="javascripts:buttonopciones('nproveedor')">
+	                <div class="w3-left"><i class="fa fa-share-alt w3-xxxlarge"></i></div>
+	                </div>
+	                <div class="w3-clear"></div>
+	                <h4>Nuevo Proveedor</h4>
 	              </div>
+	            </div>
+	            <div class="w3-quarter">
+	              <div class="w3-container w3-orange w3-text-white w3-padding-16 w3-button" onclick="javascripts:buttonopciones('ncotizar')">
+	                <div class="w3-left"><i class="fa fa-users w3-xxxlarge"></i></div>
+	                <div class="w3-right">
+	                  <h3>50</h3>
+	                </div>
+	                <div class="w3-clear"></div>
+	                <h4>Usuarios</h4>
+	              </div>
+	            </div>
 	          </div>
-	    	</div>
-
+	         </div>
+	          
+	          <!--  div class="w3-panel">
+	            <div class="w3-row-padding" style="margin:0 -16px">
+	              <div id="ingreso" th:replace="Fragments/IngresoCliente :: ingresoCliente">&nbsp;</div>
+	              <div id="ingreso" th:replace="Fragments/IngresoBL :: ingresoBL">&nbsp;</div>
+	              <div id="ingreso" th:replace="Fragments/IngresoProveedor :: ingresoProveedor">&nbsp;</div>
+	          </div-->
+	          
+	
 	          <!-- Footer -->
 	          <footer class="w3-container w3-padding-16 w3-light-grey">
-	            <h4></h4>
+	            <h4>FOOTER</h4>
 	            <p>Producido por <a href="https://github.com/Developerweed" target="_blank">Developerweed</a></p>
 	          </footer>
 	
 	          <!-- End page content -->
-	    </div>
+	        </div>
 	
 	        <script>
 	        // Get the Sidebar
@@ -146,6 +143,8 @@
 	          overlayBg.style.display = "none";
 	        }
 	        </script>
-	<script src="/js/insertFragController.js"></script>
+	<!-- <script src="/js/ingresoClientes.js" th:href="@{/js/ingresoClientes.js}"></script>
+	<script src="/js/Proveedor.js" th:href="@{/js/Proveedor.js}"></script>-->
+	<script src="/js/BL.js" th:href="@{/js/BL.js}"></script>
 	</body>
 </html>

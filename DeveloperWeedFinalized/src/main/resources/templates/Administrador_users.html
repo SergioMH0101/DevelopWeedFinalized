@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+<head>
+<meta charset="UTF-8">
+<meta th:name="${_csrf.parameterName}" th:content="${_csrf.token}"/>
+<title>Syslogic.cl Crear Usuarios</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="/css/bootstrap.css" rel="stylesheet" th:href="@{/css/bootstrap.css}"/>
+<link href="/css/bootstrap-table.min.css" rel="stylesheet" th:href="@{/css/bootstrap-table.min.css}"/>
+<link href="/css/globalstyle.css" rel="stylesheet" th:href="@{/css/globalstyle.css}"/>
+<script src="/js/jquery-3.4.1.js" th:href="@{/js/jquery-3.4.1.js}"></script>
+	
+
+<style type="text/css">
+	.login-form {
+		width: 340px;
+		margin: 50px auto;
+	}
+    .login-form form {        
+    	margin-bottom: 15px;
+        background: #f7f7f7;
+        box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+        padding: 30px;
+    }
+    .login-form h2 {
+        margin: 0 0 15px;
+    }
+    .form-control, .btn {
+        min-height: 38px;
+        border-radius: 2px;
+    }
+	.input-group-addon .fa {
+        font-size: 18px;
+    }
+    .btn {        
+        font-size: 15px;
+        font-weight: bold;
+    }
+</style>
+</head>
+<body>
+<div th:replace="fragments/header :: header">&n</div>
+<h1>Crear Usuario</h1>
+<!--  <div class="login-form">
+	<div class="alert alert-danger" th:if="${param.error}">
+		Nombre de usuario o contraseña incorrectos 
+		Intenta Nuevamente 
+	</div>
+	
+	<div class="alert alert-info" th:if="${param.logout}">
+	 Logged Out
+	</div>
+    <form th:action="@{/createUser}" method="post">
+    	
+        <h2 class="text-center">Syslogic.cl</h2>   
+        
+        <!--ver por qué imagen no carga 
+        <img src="logofacebook.png" class="rounded" id="icon" alt="Vivimos.cl-icon"/>
+        
+        <div class="form-group">
+        	<div class="input-group">
+                
+                <input type="text" class="form-control" name="user_name" placeholder="Nombre de usuario" required="required">
+        </div>
+		<div class="form-group">
+            <div class="input-group">
+                
+                <input type="password" class="form-control" name="password" placeholder="********" required="required">
+            </div>
+        </div>
+        
+              
+        <div class="form-group">
+            <input type="submit" class="btn btn-primary" value="Crear usuario"/>
+        </div>
+          </div> 
+    </form>
+  </div> -->  
+  
+  
+  <!-- usar thymeleaf table para llenar -->
+<div class="container">
+		<div class="panel panel-default" id="panel1">
+			<div class="panel-body">
+				<h3>Administrador de usuarios </h3>	
+				<p>
+				
+				<p>
+				<div class="alert alert-danger" id="msg" hidden="true"></div>
+		
+				<p>
+				<div class="input-group">
+					<span class="input-group-addon">ID</span>
+					<input type="number" class="form-control" id="user_id" placeholder="1, 2, 3,.....">
+				</div>
+				<div class="input-group">
+					<span class="input-group-addon">Nombre de usuario</span>
+					<input type="text" class="form-control" id="user_name" placeholder="DeveloperWeed" >
+				</div>
+				<div class="input-group">
+					<span class="input-group-addon">Rol</span>
+					<input type="text" class="form-control" id="rol" placeholder="ROLE_admin,editor o user" >
+				</div>
+				<div class="input-group">
+					<span class="input-group-addon">Password</span>
+					<input type="password" class="form-control" id="password" placeholder="Password123">
+				</div>
+			</div>
+	
+	</div>
+
+  
+
+<script type="text/javascript" src="/js/bootstrap.js" th:href="@{/js/bootstrap.js}"></script>
+<script type="text/javascript" src="/js/bootstrap-table.min.js" th:href="@{/js/bootstrap-table.min.js}"></script>
+</body>
+</html>

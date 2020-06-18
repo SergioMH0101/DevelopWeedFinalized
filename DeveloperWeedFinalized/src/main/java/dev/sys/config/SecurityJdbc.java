@@ -24,13 +24,13 @@ public class SecurityJdbc extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests()
-		.antMatchers("/BL/delete","/createUser", "/Administrador_users").hasAuthority("Admin")
-		.antMatchers("/BL/insert", "/BL/update").hasAnyAuthority("Editor", "Admin")
-		.antMatchers("/list" ,"/get").hasAnyAuthority("ROLE_Admin","Editor","User")
-		.antMatchers("/css/loginstyle.css").permitAll()
+		.antMatchers("/BL/delete","/createUser","/BL/list" ,"/BL/get", "/Administrador_users").hasAuthority("ROLE_Admin")
+		.antMatchers("/BL/insert", "/BL/update").hasAnyAuthority("ROLE_Editor", "ROLE_Admin")
+		.antMatchers("/BL/list" ,"/BL/get","home").hasAnyAuthority("ROLE_Admin","ROLE_Editor","ROLE_User")
+		.antMatchers("/css/loginstyle.css","/js/*").permitAll()
 		.antMatchers("/images/logo.png").permitAll() 
-		.antMatchers( "/login").permitAll()
-		.antMatchers("/" ,"home").permitAll()
+		.antMatchers( "/favicon.ico").permitAll()
+		.antMatchers("/","BL" ,"home").permitAll()
 		;
 		
 		http

@@ -1,4 +1,4 @@
-/*package cl.icap.cursofullstack.Developerweed.controller;
+package dev.sys.controller;
 
 import java.io.IOException;
 import java.util.List;
@@ -15,11 +15,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-
-import cl.icap.cursofullstack.developerweed.model.dto.BLDTO;
-import cl.icap.cursofullstack.developerweed.model.dto.UsersDTO;
-
-import cl.icap.cursofullstack.developerweed.service.UsersService;
+import dev.sys.model.dto.UsersDTO;
+import dev.sys.service.UsersService;
 
 @Controller
 public class UsersController {
@@ -42,7 +39,7 @@ public class UsersController {
 	usersDTO.setPassword(bCryptPasswordEncoder.encode(password));
 	usersDTO.setUsername(req.getParameter("username"));
 	usersDTO.setEnabled(1);
-	usersDTO.setRol("User");
+	usersDTO.setRol(req.getParameter("rol"));
 	
 	rows=usersService.insertUsers(usersDTO);
 	rowsrol=usersService.insertRol(usersDTO);
@@ -70,5 +67,5 @@ public class UsersController {
 		}
 	  }
 	
-	*/
+	
 
