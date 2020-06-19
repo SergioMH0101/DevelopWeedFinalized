@@ -13,7 +13,6 @@ import dev.sys.model.dto.BLDTO;
 @Service
 public class BLServiceImpl implements BLService {
 
-	//hacemos uso de la interfaz SalesDAO
 	@Autowired
 	BLDAO blDAO; 
 	
@@ -21,7 +20,6 @@ public class BLServiceImpl implements BLService {
 		 
 	}
 
-	//implementamos método lista.Se implementa el método definido en la interfaz.
 	public List<BLDTO> list(){
 		return blDAO.list();
 	}

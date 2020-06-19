@@ -7,27 +7,28 @@ function BLController(option){
 	case "list":
 		$.ajax({
 			type : "post",
-			headers: {"X-CSRF-TOKEN": token}, //send CSRF token in header
+			headers: {"X-CSRF-TOKEN": token},
+		
 			url : "/BL/list",
 			success : function(res){
 				$("#blTable").bootstrapTable('load',res);
 				$("#blTable tbody").on('click','tr', function(){
-					$("#Id_bl").val($(this).find("td:eq(0)").text());
-					$("#Nombre_nave").val($(this).find("td:eq(1)").text());
-					$("#Nombre_sello").val($(this).find("td:eq(2)").text());
-					$("#Consignatario").val($(this).find("td:eq(3)").text());
-					$("#Consignante").val($(this).find("td:eq(4)").text());
-					$("#Peso").val($(this).find("td:eq(5)").text());
-					$("#Vol_cubico").val($(this).find("td:eq(6)").text());
-					$("#Mercaderia").val($(this).find("td:eq(7)").text());
-					$("#Tipo_carga").val($(this).find("td:eq(8)").text());
-					$("#Fecha_salida").val($(this).find("td:eq(9)").text());
-					$("#Fecha_arribo").val($(this).find("td:eq(10)").text());
-					$("#Unidades").val($(this).find("td:eq(11)").text());
-					$("#Carga").val($(this).find("td:eq(12)").text());
-					$("#Incoterms").val($(this).find("td:eq(13)").text());
-					$("#Pais").val($(this).find("td:eq(14)").text());
-					$("#Documentacion").val($(this).find("td:eq(15)").text());
+					$("#id_bl").val($(this).find("td:eq(0)").text());
+					$("#nombre_nave").val($(this).find("td:eq(1)").text());
+					$("#nombre_sello").val($(this).find("td:eq(2)").text());
+					$("#consignatario").val($(this).find("td:eq(3)").text());
+					$("#consignante").val($(this).find("td:eq(4)").text());
+					$("#peso").val($(this).find("td:eq(5)").text());
+					$("#vol_cubico").val($(this).find("td:eq(6)").text());
+					$("#mercaderia").val($(this).find("td:eq(7)").text());
+					$("#tipo_carga").val($(this).find("td:eq(8)").text());
+					$("#fecha_salida").val($(this).find("td:eq(9)").text());
+					$("#fecha_arribo").val($(this).find("td:eq(10)").text());
+					$("#unidades").val($(this).find("td:eq(11)").text());
+					$("#carga").val($(this).find("td:eq(12)").text());
+					$("#incoterms").val($(this).find("td:eq(13)").text());
+					$("#pais").val($(this).find("td:eq(14)").text());
+					$("#documentacion").val($(this).find("td:eq(15)").text());
 					$("#myModal").click()
 				});
 				$("#myModal").modal({show:true})
@@ -50,22 +51,22 @@ function BLController(option){
 					$("#msg").show();
 					$("#msg").html("Registro no encontrado")
 				}else{
-					$("#Id_bl").val(res.Id_bl);
-					$("#Nombre_nave").val(res.Nombre_nave);
-					$("#Num_sello").val(res.Num_sello);
-					$("#Consignatario").val(res.Consignatario);
-					$("#Consignante").val(res.Consignante);
-					$("#Peso").val(res.Peso);
-					$("#Vol_cubico").val(res.Vol_cubico);
-					$("#Mercaderia").val(res.Mercaderia);
-					$("#Tipo_carga").val(res.Tipo_carga);
-					$("#Fecha_salida").val(res.Fecha_salida);
-					$("#Fecha_arribo").val(res.Fecha_arribo);
-					$("#Unidades").val(res.Unidades);
-					$("#Carga").val(res.Carga);
-					$("#Incoterms").val(res.Incoterms);
-					$("#Pais").val(res.Pais);
-					$("#Documentacion").val(res.Documentacion);
+					$("#id_bl").val(res.Id_bl);
+					$("#nombre_nave").val(res.Nombre_nave);
+					$("#num_sello").val(res.Num_sello);
+					$("#consignatario").val(res.Consignatario);
+					$("#consignante").val(res.Consignante);
+					$("#peso").val(res.Peso);
+					$("#vol_cubico").val(res.Vol_cubico);
+					$("#mercaderia").val(res.Mercaderia);
+					$("#tipo_carga").val(res.Tipo_carga);
+					$("#fecha_salida").val(res.Fecha_salida);
+					$("#fecha_arribo").val(res.Fecha_arribo);
+					$("#unidades").val(res.Unidades);
+					$("#carga").val(res.Carga);
+					$("#incoterms").val(res.Incoterms);
+					$("#pais").val(res.Pais);
+					$("#documentacion").val(res.Documentacion);
 				}
 			},
 			error : function(){
@@ -75,7 +76,7 @@ function BLController(option){
 		});
 		break;
 	case "insert":
-		var json = 
+		var bljson = 
 	{
 			'Id_bl' : $("#Id_bl").val(),
 			'Nombre_nave' : $("#Nombre_nave").val(),
@@ -94,7 +95,7 @@ function BLController(option){
 			'Pais' : $("#Pais").val(),
 			'Documentacion' : $("#Documentacion").val()		
 	}
-		var postData= JSON.stringify(json);
+		var postData= JSON.stringify(bljson);
 		
 		$.ajax({
 			type : "post",
@@ -102,6 +103,7 @@ function BLController(option){
 			url : "/BL/insert",
 			data: postData,
 			contentType : "application/json; charset=utf-8",
+			dataType : "json",
 			success : function(res){
 				if (res== 1){
 					$("#msg").removeClass("alert-danger").addClass("alert-success")
@@ -120,7 +122,7 @@ function BLController(option){
 		break;
 		
 	case "update":
-		var json = 
+		var bljson = 
 	{
 			'Id_bl' : $("#Id_bl").val(),
 			'Nombre_nave' : $("#Nombre_nave").val(),
@@ -141,7 +143,7 @@ function BLController(option){
 	
 	}
 	
-		var postData= JSON.stringify(json);
+		var postData= JSON.stringify(bljson);
 		
 		$.ajax({
 			type : "post",

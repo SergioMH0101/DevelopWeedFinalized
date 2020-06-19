@@ -16,11 +16,11 @@ import dev.sys.model.dto.BLDTO;
 
 @Repository
 public class BLDAOImpl implements BLDAO {
-	private String insert="INSERT INTO BL (Id_bl,Nombre_nave, Num_sello, Consignatario, Consignante, Peso, Vol_cubico, Mercaderia, Tipo_carga, Fecha_salida, Fecha_arribo, Unidades, Carga, Incoterms, Pais, Documentacion) VALUES(:Id_bl, :Nombre_nave, :Num_sello, :Consignatario, :Consignante, :Peso, :Vol_cubico, :Mercaderia, :Tipo_carga, :Fecha_salida, :Fecha_arribo, :Unidades, :Carga, :Incoterms, :Pais, :Documentacion)";
-	private String select="SELECT * FROM BL WHERE Id_bl=?";
-	private String update="UPDATE BL SET Id_bl= :Id_bl, Nombre_nave= :Nombre_nave, Num_sello= :Num_sello, Consignatario= :Consignatario, Consignante= :Consignante, Peso= :Peso, Vol_cubico= :Vol_cubico, Mercaderia= :Mercaderia, Tipo_carga= :Tipo_carga, Fecha_salida= :Fecha_salida, Fecha_arribo= :Fecha_arribo, Unidades= :Unidades, Carga= :Carga, Incoterms= :Incoterms, Pais= :Pais, Documentacio= :Documentacion  WHERE Id_bl= :Id_bl";
-	private String delete="DELETE FROM BL WHERE Id_bl=?";
-	private String list="SELECT * FROM BL";
+	private String insert="INSERT INTO AA_BL (Id_bl,Nombre_nave, Num_sello, Consignatario, Consignante, Peso, Vol_cubico, Mercaderia, Tipo_carga, Fecha_salida, Fecha_arribo, Unidades, Carga, Incoterms, Pais, Documentacion) VALUES(:Id_bl, :Nombre_nave, :Num_sello, :Consignatario, :Consignante, :Peso, :Vol_cubico, :Mercaderia, :Tipo_carga, :Fecha_salida, :Fecha_arribo, :Unidades, :Carga, :Incoterms, :Pais, :Documentacion)";
+	private String select="SELECT * FROM AA_BL WHERE Id_bl=?";
+	private String update="UPDATE AA_BL SET Id_bl= :Id_bl, Nombre_nave= :Nombre_nave, Num_sello= :Num_sello, Consignatario= :Consignatario, Consignante= :Consignante, Peso= :Peso, Vol_cubico= :Vol_cubico, Mercaderia= :Mercaderia, Tipo_carga= :Tipo_carga, Fecha_salida= :Fecha_salida, Fecha_arribo= :Fecha_arribo, Unidades= :Unidades, Carga= :Carga, Incoterms= :Incoterms, Pais= :Pais, Documentacion= :Documentacion  WHERE Id_bl= :Id_bl";
+	private String delete="DELETE FROM AA_BL WHERE Id_bl=?";
+	private String list="SELECT * FROM AA_BL";
 	
 
 	
@@ -268,11 +268,7 @@ public class BLDAOImpl implements BLDAO {
 	}
 
 	@Override
-	public List<BLDTO> list() {
-	//devuelve un tipo List SalesDTO
-	//vamos a hacer un mapeo para la fila. Se ocupa el rowMapper -->se ocupa clase BeanPropertyRowMapper, convierte una clase a un objeto, así
-	//jdbcTemplate sabe que tiene que devolver un dato tipo SalesDTO
-	//como esta consulta no recibe argumentos dado que es un Select * ; por lo tanto se quita el "args".	
+	public List<BLDTO> list() {	
 		List<BLDTO> listbl= jdbcTemplate.query(list, BeanPropertyRowMapper.newInstance(BLDTO.class));
 		return listbl;
 	}

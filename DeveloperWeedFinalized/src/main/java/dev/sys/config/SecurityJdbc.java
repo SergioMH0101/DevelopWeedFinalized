@@ -16,7 +16,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @Configuration
 @EnableWebSecurity
 public class SecurityJdbc extends WebSecurityConfigurerAdapter {
-
+	
 	@Autowired
 	private DataSource dataSource;
 
@@ -24,9 +24,9 @@ public class SecurityJdbc extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests()
-		.antMatchers("/BL/delete","/createUser","/BL/list" ,"/BL/get", "/Administrador_users").hasAuthority("ROLE_Admin")
-		.antMatchers("/BL/insert", "/BL/update").hasAnyAuthority("ROLE_Editor", "ROLE_Admin")
-		.antMatchers("/BL/list" ,"/BL/get","home").hasAnyAuthority("ROLE_Admin","ROLE_Editor","ROLE_User")
+		.antMatchers("/BL/insert","/BL/delete","/createUser","/BL/list" ,"/BL/get", "/Administrador_users").permitAll()
+		.antMatchers("/BL/insert", "/BL/update").permitAll()
+		.antMatchers("/BL/list" ,"/BL/get","home").permitAll()
 		.antMatchers("/css/loginstyle.css","/js/*").permitAll()
 		.antMatchers("/images/logo.png").permitAll() 
 		.antMatchers( "/favicon.ico").permitAll()

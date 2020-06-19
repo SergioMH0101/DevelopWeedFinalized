@@ -21,9 +21,8 @@ img {margin-bottom: -8px;}
 <!--  div th:replace="fragments/header :: header"></div>-->
 <!-- Header with Slideshow -->
 <header class="w3-display-container w3-center">
-<div class="container"  style="text-align:left; background-color:white;">
+<div class="container"  style="text-align:left; background-color:white;"></div>
   <div class="container"  style="text-align:right; background-color:black;">
-  <h4 th:inline="text">Welcome  </h4>
     <button type="button" class="btn btn-outline-light text-dark" onclick="document.getElementById('login').style.display='block'" >Ingresar</button>
   </div>
 	
@@ -277,6 +276,7 @@ function showDivs(n) {
 }
 
 </script>
+
 <script src="/js/BL.js" th:href="@{/js/BL.js}"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>

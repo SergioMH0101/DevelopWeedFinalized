@@ -34,15 +34,6 @@ public class BLController {
 		return blService.get(Integer.parseInt(req.getParameter("Id_bl")));
 	}
 	
-	/* Desde el JS viene como string de datos, hay que transformarlo a DTO
-	1)Capturar String de datos
-	2)Con la variable String, se recepciona la data. 
-	3)La clase Get Reader.lines, nos lee la data que viene desde Ajax. 
-	4)Luego se genera la colección de datos
-	5)Se ocupa la librería GSON de Google. Esta libería transforma el string de data que viene desde JavaScript y lo transforma en DTO
-	6)cuando se envía la fecha desde web a controlador, el formato es el formato de la vista. Hay que tranformar el formato.
-	 
-	 */
 	@RequestMapping(value="/insert")
 	public @ResponseBody int ajaxInsert(HttpServletRequest req,HttpServletResponse res){
 	
