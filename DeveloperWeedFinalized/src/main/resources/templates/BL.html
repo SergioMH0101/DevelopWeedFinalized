@@ -21,11 +21,10 @@ xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5	">
 	html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 	</style>
 	<body class="w3-light-grey">
-	          <!-- Top container -->
-	         <!--<div class="w3-bar w3-top w3-black w3-large" style="z-index:4">
+	         <div class="w3-bar w3-top w3-black w3-large" style="z-index:4">
 	          <button class="w3-bar-item w3-button w3-hide-large w3-hover-none w3-hover-text-light-grey" onclick="w3_open();"><i class="fa fa-bars"></i>  Menu</button>
 	          <a class="w3-bar-item w3-right w3-button" onclick="document.getElementById('logout').submit();">Cerrar</a>
-	        </div>   -->
+	        </div>   
 	
 	        <!-- Sidebar/menu -->
 	        <nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:300px;" id="mySidebar"><br>
@@ -47,7 +46,8 @@ xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5	">
 	          <div class="w3-bar-block">
 	            <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Close Menu</a>
 	            <a href="/index" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fa fa-users fa-fw"></i>  Inicio</a>
-	            <a href="/BL" class="w3-bar-item w3-button w3-padding"><i class="fa fa-eye fa-fw"></i>  BL</a>
+	            <a href="/AA_AGENTE_DE_ADUANA" class="w3-bar-item w3-button w3-padding"><i class="fa fa-eye fa-fw"></i>  AA_AGENTE_DE_ADUANA</a>
+	            <a href="/BL" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i>  BL</a>
 	            <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i>  Trafico</a>
 	            <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i>  Geo</a>
 	            <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-diamond fa-fw"></i>  Ordenes</a>
@@ -69,11 +69,75 @@ xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5	">
 	          <header class="w3-container" style="padding-top:22px">
 	            <h5><b><i class="fa fa-dashboard"></i> Mi sala de trabajo</b></h5>
 	          </header>
-			<div class="panel panel-default" id="panel1">
-			<div class="panel-body">
-				<h3>Administrador BL</h3>	
-				<p>
-				<div class="btn-group">
+	     	<form>
+	     			
+				    <div class="form-group">
+				      <label for="Id_bl">Numero BL:</label>
+				      <input type="number" class="form-control" id="Id_bl" placeholder="Ingresar Numero BL" name="id_bl">
+				    </div>
+				    <div class="form-group">
+				      <label for="Nombre_nave">Nombre de nave:</label>
+				      <input type="text" class="form-control" id="Nombre_nave" placeholder="Ingresar Nombre de Nave" name="nombre_nave">
+				    </div>
+				    <div class="form-group">
+				      <label for="Num_sello">Numero de Sello:</label>
+				      <input type="number" class="form-control" id="Num_sello" placeholder="Ingresar Numero de sello" name="num_sello">
+				    </div>
+				    <div class="form-group">
+				      <label for="Consignatario">Consignatario:</label>
+				      <input type="text" class="form-control" id="Consignatario" placeholder="Ingresar Consignatario" name="consignatario">
+				    </div>
+				    <div class="form-group">
+				      <label for=Consignante>Consignante:</label>
+				      <input type="text" class="form-control" id="Consignante" placeholder="Ingresar Consignante" name="consignante">
+				    </div>
+				    <div class="form-group">
+				      <label for="Peso">Peso:</label>
+				      <input type="number" class="form-control" id="Peso" placeholder="Ingresar Peso" name="peso">
+				    </div>
+				    <div class="form-group">
+				      <label for="Vol_cubico">Volumen cubico:</label>
+				      <input type="number" class="form-control" id="Vol_cubico" placeholder="Ingresar Volumen cubico" name="vol_cubico">
+				    </div>
+				    <div class="form-group">
+				      <label for="Mercaderia">Mercaderia:</label>
+				      <input type="text" class="form-control" id="Mercaderia" placeholder="Ingresar Mercaderia" name="mercaderia">
+				    </div>
+				    <div class="form-group">
+				      <label for="Tipo_carga">Tipo  de carga:</label>
+				      <input type="text" class="form-control" id="Tipo_carga" placeholder="Ingresar Tipo de carga" name="tipo_carga">
+				    </div>
+				    <div class="form-group">
+				      <label for="Fecha_salida">Fecha de salida:</label>
+				      <input type="date" class="form-control" id="Fecha_salida" placeholder="dd/mm/aaaa" name="fecha_salida">
+				    </div>
+				    <div class="form-group">
+				      <label for="Fecha_arribo">Fecha de arribo:</label>
+				      <input type="date" class="form-control" id="Fecha_arribo" placeholder="dd/mm/aaaa" name="fecha_arribo">
+				    </div>
+				    <div class="form-group">
+				      <label for="Unidades">Unidades:</label>
+				      <input type="number" class="form-control" id="Unidades" placeholder="Ingresar Unidades" name="unidades">
+				    </div>
+				    <div class="form-group">
+				      <label for="Carga">Carga:</label>
+				      <input type="text" class="form-control" id="Carga" placeholder="Ingresar Carga" name="Carga">
+				    </div>
+				    <div class="form-group">
+				      <label for="Incoterms">Incoterms:</label>
+				      <input type="text" class="form-control" id="Incoterms" placeholder="Ingresar Incoterms" name="incoterms">
+				    </div>
+				    <div class="form-group">
+				      <label for="Pais">Pais:</label>
+				      <input type="text" class="form-control" id="Pais" placeholder="Ingresar Pais" name="Pais">
+				    </div>
+				    <div class="form-group">
+				      <label for="Documentacion">Documentacion:</label>
+				      <input type="password" class="form-control" id="Documentacion" placeholder="Ingresar Nombre de Nave" name="documentacion">
+				    </div>
+				    <div class="alert alert-danger" id="msg" hidden="true">
+					</div>
+				    <div class="btn-group">
 					<button type="button" class="btn btn-primary btn-sml" onclick="javascript:BLController('list')">List</button>
 					<button type="button" class="btn btn-primary btn-sml" onclick="javascript:BLController('get')">Buscar BL</button>
 					<button type="button" class="btn btn-primary btn-sml" onclick="javascript:BLController('insert')">Nuevo BL</button>
@@ -81,79 +145,8 @@ xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5	">
 					<button type="button" class="btn btn-primary btn-sml" onclick="javascript:BLController('delete')">Eliminar BL</button>
 					
 				</div>
-				<p>
-				<div class="alert alert-danger" id="msg" hidden="true">
-				</div>
-				<p>
-				<div class="input-group">
-					<span class="input-group-addon">Numero bl</span>
-					<input type="number" class="form-control" id="Id_bl" >
-				</div>
-				<div class="input-group">
-					<span class="input-group-addon">Nombre nave </span>
-					<input type="text" class="form-control" id="Nombre_nave" >
-				</div>
-				<div class="input-group">
-					<span class="input-group-addon">Numero de sello</span>
-					<input type="number" class="form-control" id="Num_sello" >
-				</div>
-					<div class="input-group">
-					<span class="input-group-addon">Consignatario</span>
-					<input type="text" class="form-control" id="Consignatario" >
-				</div>
-					<div class="input-group">
-					<span class="input-group-addon">Consignante</span>
-					<input type="text" class="form-control" id="Consignante" >
-				</div>
-				<div class="input-group">
-					<span class="input-group-addon">Peso</span>
-					<input type="number" class="form-control" id="Peso" >
-				</div>
-				<div class="input-group">
-					<span class="input-group-addon">Volumen cubico </span>
-					<input type="number" class="form-control" id="Vol_cubico" >
-				</div>
-				<div class="input-group">
-					<span class="input-group-addon">Mercaderia</span>
-					<input type="text" class="form-control" id="Mercaderia" >
-				</div>
-					<div class="input-group">
-					<span class="input-group-addon">Tipo de carga</span>
-					<input type="text" class="form-control" id="Tipo_carga" >
-				</div>
-					<div class="input-group">
-					<span class="input-group-addon">Fecha de salida</span>
-					<input type="text" class="form-control" id="Fecha_salida" placeholder="dd/mm/aaaa" >
-				</div>
-				<div class="input-group">
-					<span class="input-group-addon">Fecha de arribo</span>
-					<input type="text" class="form-control" id="Fecha_arribo" placeholder="dd/mm/aaaa" >
-				</div>
-				<div class="input-group">
-					<span class="input-group-addon">Unidades </span>
-					<input type="number" class="form-control" id="Unidades" >
-				</div>
-				<div class="input-group">
-					<span class="input-group-addon">Carga</span>
-					<input type="text" class="form-control" id="Carga" >
-				</div>
-					<div class="input-group">
-					<span class="input-group-addon">Incoterms</span>
-					<input type="text" class="form-control" id="Incoterms" >
-				</div>
-					<div class="input-group">
-					<span class="input-group-addon">Pais</span>
-					<input type="text" class="form-control" id="Pais" >
-				</div>
-					<div class="input-group">
-					<span class="input-group-addon">Documentacion</span>
-					<input type="text" class="form-control" id="Documentacion" >
-				</div>								
-			</div>
-		</div>
+			</form>
 	
-	
-
 
 	<div id="myModal" class="modal fade" role="dialog">
 		<div class="modal-dialog">

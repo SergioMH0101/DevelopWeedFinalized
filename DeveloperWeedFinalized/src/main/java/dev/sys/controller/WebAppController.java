@@ -22,10 +22,13 @@ public class WebAppController {
 		public String getIndex(){
 			return "index";
 		}
+		@RequestMapping("/AA_AGENTE_DE_ADUANA")
+		public String getAA_AGENTE_DE_ADUANA() {
+			return "AA_AGENTE_DE_ADUANA";
+		}
 		@RequestMapping("/BL")
 		public String getBL() {
 			return "BL";
-			
 		}
 		
 		@RequestMapping("/403")

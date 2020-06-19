@@ -51,22 +51,22 @@ function BLController(option){
 					$("#msg").show();
 					$("#msg").html("Registro no encontrado")
 				}else{
-					$("#id_bl").val(res.Id_bl);
-					$("#nombre_nave").val(res.Nombre_nave);
-					$("#num_sello").val(res.Num_sello);
-					$("#consignatario").val(res.Consignatario);
-					$("#consignante").val(res.Consignante);
-					$("#peso").val(res.Peso);
-					$("#vol_cubico").val(res.Vol_cubico);
-					$("#mercaderia").val(res.Mercaderia);
-					$("#tipo_carga").val(res.Tipo_carga);
-					$("#fecha_salida").val(res.Fecha_salida);
-					$("#fecha_arribo").val(res.Fecha_arribo);
-					$("#unidades").val(res.Unidades);
-					$("#carga").val(res.Carga);
-					$("#incoterms").val(res.Incoterms);
-					$("#pais").val(res.Pais);
-					$("#documentacion").val(res.Documentacion);
+					$("#Id_bl").val(res.id_bl);
+					$("#Nombre_nave").val(res.nombre_nave);
+					$("#Num_sello").val(res.num_sello);
+					$("#Consignatario").val(res.consignatario);
+					$("#Consignante").val(res.consignante);
+					$("#Peso").val(res.peso);
+					$("#Vol_cubico").val(res.vol_cubico);
+					$("#Mercaderia").val(res.mercaderia);
+					$("#Tipo_carga").val(res.tipo_carga);
+					$("#Fecha_salida").val(res.fecha_salida);
+					$("#Fecha_arribo").val(res.fecha_arribo);
+					$("#Unidades").val(res.unidades);
+					$("#Carga").val(res.carga);
+					$("#Incoterms").val(res.incoterms);
+					$("#Pais").val(res.pais);
+					$("#Documentacion").val(res.documentacion);
 				}
 			},
 			error : function(){
