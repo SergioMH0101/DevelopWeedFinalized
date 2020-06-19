@@ -5,19 +5,18 @@ xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5	">
 	<title>Phoenix Logistic</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta th:name="${_csrf.parameterName}" th:content="${_csrf.token}"/>
 	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link href="/css/bootstrap.css" rel="stylesheet" th:href="@{/css/bootstrap.css}"/>
 	<link href="/css/bootstrap-table.min.css" rel="stylesheet" th:href="@{/css/bootstrap-table.min.css}"/>
 	<script src="/js/jquery-3.4.1.js" th:href="@{/js/jquery-3.4.1.js}"></script>
+	<link href="/css/bootstrap.css" rel="stylesheet" th:href="@{/css/bootstrap.css}"/>
 	<link href="/css/bootstrap-table.min.css" rel="stylesheet" th:href="@{/css/bootstrap-table.min.css}"/>
 	<script src="/js/jquery-3.4.1.js" th:href="@{/js/jquery-3.4.1.js}"></script>
 	<script src="/js/BL.js" th:href="@{/js/BL.js}"></script>
 	<script src="/js/BL.js"></script>
-	<script src="/js/AA_AGENTE_DE_ADUANA.js" th:href="@{/js/AA_AGENTE_DE_ADUANA.js}"></script>
-	<script src="/js/AA_AGENTE_DE_ADUANA.js"></script>
-
 	
 	
 	<style>
@@ -50,9 +49,8 @@ xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5	">
 	          <div class="w3-bar-block">
 	            <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Close Menu</a>
 	            <a href="/index" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fa fa-users fa-fw"></i>  Inicio</a>
-	            <a href="/AA_AGENTE_DE_ADUANA" class="w3-bar-item w3-button w3-padding"><i class="fa fa-eye fa-fw"></i>  AA_AGENTE_DE_ADUANA</a>
-	            <a href="/BL" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i>  BL</a>
-	           	<a href="/Cliente" class="w3-bar-item w3-button w3-padding"><i class="fa fa-eye fa-fw"></i>  Cliente</a>
+	            <a href="/BL" class="w3-bar-item w3-button w3-padding"><i class="fa fa-eye fa-fw"></i>  BL</a>
+	            <a href="/cliente" class="w3-bar-item w3-button w3-padding"><i class="fa fa-eye fa-fw"></i>  Cliente</a>
 	            <a href="/proveedor" class="w3-bar-item w3-button w3-padding"><i class="fa fa-eye fa-fw"></i>  Proveedor</a>
 	            <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i>  Trafico</a>
 	            <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i>  Geo</a>
@@ -75,59 +73,105 @@ xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5	">
 	          <header class="w3-container" style="padding-top:22px">
 	            <h5><b><i class="fa fa-dashboard"></i> Mi sala de trabajo</b></h5>
 	          </header>
-			
-			
-			
-			
-			
-	         </div>
-	          
-	          <!--  div class="w3-panel">
-	            <div class="w3-row-padding" style="margin:0 -16px">
-	              <div id="ingreso" th:replace="Fragments/IngresoCliente :: ingresoCliente">&nbsp;</div>
-	              <div id="ingreso" th:replace="Fragments/IngresoBL :: ingresoBL">&nbsp;</div>
-	              <div id="ingreso" th:replace="Fragments/IngresoProveedor :: ingresoProveedor">&nbsp;</div>
-	          </div-->
-	          
-		<div>
-	          <!-- Footer -->
-	          <footer class="w3-container w3-padding-16 w3-light-grey">
-	            <p>Producido por <a href="https://github.com/Developerweed" target="_blank">Developerweed</a></p>
-	          </footer>
+			<div class="panel panel-default" id="panel1">
+			<div class="panel-body">
+				<h3>Administrador Proveedor</h3>	
+				<p>
+				<div class="btn-group">
+					<button type="button" class="btn btn-primary btn-sml" onclick="javascript:ProveedorController('list')">List</button>
+					<button type="button" class="btn btn-primary btn-sml" onclick="javascript:ProveedorController('get')">Buscar Proveedor</button>
+					<button type="button" class="btn btn-primary btn-sml" onclick="javascript:ProveedorController('insert')">Nuevo Proveedor</button>
+					<button type="button" class="btn btn-primary btn-sml" onclick="javascript:ProveedorController('update')">Actualizar Proveedor</button>
+					<button type="button" class="btn btn-primary btn-sml" onclick="javascript:ProveedorController('delete')">Eliminar Proveedor</button>
+					
+				</div>
+				<p>
+				<div class="alert alert-danger" id="msg" hidden="true">
+				</div>
+				<p>
+				<div class="input-group">
+					<span class="input-group-addon">Numero Proveedor</span>
+					<input type="number" class="form-control" id="Id_proveedor" >
+				</div>
+				<div class="input-group">
+					<span class="input-group-addon">Nombre Proveedor </span>
+					<input type="text" class="form-control" id="Nombre_proveedor" >
+				</div>
+				<div class="input-group">
+					<span class="input-group-addon">Giro</span>
+					<input type="number" class="form-control" id="Id_giro" >
+				</div>
+					<div class="input-group">
+					<span class="input-group-addon">Contacto</span>
+					<input type="text" class="form-control" id="Contacto" >
+				</div>
+					<div class="input-group">
+					<span class="input-group-addon">Email</span>
+					<input type="text" class="form-control" id="Email" >
+				</div>
+				<div class="input-group">
+					<span class="input-group-addon">Direccion</span>
+					<input type="number" class="form-control" id="Direccion" >
+				</div>
+				<div class="input-group">
+					<span class="input-group-addon">Comuna </span>
+					<input type="number" class="form-control" id="Id_comuna" >
+				</div>
+				<div class="input-group">
+					<span class="input-group-addon">Registro</span>
+					<input type="text" class="form-control" id="Id_reg" >
+				</div>
+					<div class="input-group">
+					<span class="input-group-addon">Pais</span>
+					<input type="text" class="form-control" id="Id_pais" >
+				</div>
+					<div class="input-group">
+					<span class="input-group-addon">T Proveedor</span>
+					<input type="text" class="form-control" id="Id_tproveedor" >
+				</div>
+			</div>
+		</div>
 	
-	          <!-- End page content -->
-	        </div>
 	
-	        <script>
-	        // Get the Sidebar
-	        var mySidebar = document.getElementById("mySidebar");
-	
-	        // Get the DIV with overlay effect
-	        var overlayBg = document.getElementById("myOverlay");
-	
-	        // Toggle between showing and hiding the sidebar, and add overlay effect
-	        function w3_open() {
-	          if (mySidebar.style.display === 'block') {
-	            mySidebar.style.display = 'none';
-	            overlayBg.style.display = "none";
-	          } else {
-	            mySidebar.style.display = 'block';
-	            overlayBg.style.display = "block";
-	          }
-	        }
-	
-	        // Close the sidebar with the close button
-	        function w3_close() {
-	          mySidebar.style.display = "none";
-	          overlayBg.style.display = "none";
-	        }
-	        </script>
-	<!-- <script src="/js/ingresoClientes.js" th:href="@{/js/ingresoClientes.js}"></script>
-	<script src="/js/Proveedor.js" th:href="@{/js/Proveedor.js}"></script>-->
-	<script src="/js/BL.js" th:href="@{/js/BL.js}"></script>
+
+
+	<div id="myModal" class="modal fade" role="dialog">
+		<div class="modal-dialog">
+		<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">Close</button>
+					<h4 class="modal-title">Proveedor List</h4>
+				</div>
+				<div class="modal-body">
+					<div class="table-responsive" style='height:100%' id='tableDivContainer'>
+						<table class="table table-condensed" id='salesTable' data-toggle="table" data-height="299">
+							<thead><tr>
+							
+								<th data-field="Id_proveedor">Id_proveedor</th>
+								<th data-field="Nombre_proveedor">Nombre del Proveedor </th>
+								<th data-field="Id_giro">Giro</th>
+								<th data-field="Contacto">Contacto</th>
+								<th data-field="Email">Email</th>
+								<th data-field="Direccion">Direccion</th>
+								<th data-field="Id_comuna">Comuna </th>
+								<th data-field="Id_reg">Registro</th>
+								<th data-field="Id_pais">Pais </th>
+								<th data-field="Id_tproveedor">T Proveedor </th>
+							</tr>
+							</thead>
+						</table>
+					</div>
+				</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>	
+					</div>
+			</div>
+		</div>
+	</div>
+</div>
+
 	<script type="text/javascript" src="/js/bootstrap.js" th:href="@{/js/bootstrap.js}"></script>
 	<script type="text/javascript" src="/js/bootstrap-table.min.js" th:href="@{/js/bootstrap-table.min.js}"></script>
-	
-	
-	</body>
+</body>
 </html>

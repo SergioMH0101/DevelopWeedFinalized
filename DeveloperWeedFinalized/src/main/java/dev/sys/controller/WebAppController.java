@@ -26,6 +26,10 @@ public class WebAppController {
 		public String getAA_AGENTE_DE_ADUANA() {
 			return "AA_AGENTE_DE_ADUANA";
 		}
+		@RequestMapping("/Cliente")
+		public String getCliente() {
+			return "Cliente";
+		}
 		@RequestMapping("/BL")
 		public String getBL() {
 			return "BL";
