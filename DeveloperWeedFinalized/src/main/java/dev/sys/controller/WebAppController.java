@@ -34,7 +34,10 @@ public class WebAppController {
 		public String getBL() {
 			return "BL";
 		}
-		
+		@RequestMapping("/AA_PROVEEDOR")
+		public String getAA_PROVEEDOR() {
+			return "AA_PROVEEDOR";
+		}
 		@RequestMapping("/403")
 		public String get403(){
 			return "403";
