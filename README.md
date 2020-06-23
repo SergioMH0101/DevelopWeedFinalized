@@ -74,4 +74,5 @@ EL siguiente ejemplo se trata de nuestro DAOimpl que esta mostrando como se trae
 Para hacer una correcta instalación asegurese de generar primero que nada la BBDD que fue señalada en un export.sql y tan solo cuando eso este listo, deberas crear un usuario en la tabla users segun tus necesidades y deberás generar una contraseña encriptada en Bcryp  e insertarla en la sección de password de la respectiva tabla.
 
 Deberas modificar el archivo application.properties del proyecto y remplazar los datos ya existentes por los que correspondan en tu equipo ya sea el puerto, username, password, o url. luego de haber hecho esto el programa ya debería estar listo para ser subido en su server.
-Se recomienda verificar el documento pom en del proyecto y verificar las dependencias ojdbc y verificar que la direccion requerida sea la correcta(en caso de que este tenga  los rangos <scope> y <systempath> existan dentro de esta depencia en el archivo pom)
+
+Se recomienda verificar el documento pom en del proyecto y verificar las dependencias ojdbc y verificar que la direccion requerida sea la correcta(en caso de que este tenga  los rangos (scope) y (systempath) dentro de esa depencia en el archivo pom)
