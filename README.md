@@ -1,10 +1,9 @@
 # DevelopWeedFinalized
 
-## Introduction
+## Introduccion
 
-En esta época que se ha digitalizado cada día más debido a las mejoras tecnológicas y las necesidades del mercado. Se han implementado mayoritariamente, programas y paginas web que ha permitido, otorgar eficiencia y aumentar mayores tasas de ventas a través del mercado digital
+En esta época que se ha digitalizado cada día más debido a las mejoras tecnológicas y las necesidades del mercado. Se han implementado mayoritariamente, programas y paginas web que ha permitido, otorgar eficiencia y aumentar mayores tasas de ventas a través del mercado digital.
 
-.
 Debido a esto las empresas, se han tenido la obligación y exigencia como una normativa mínima, tener una pagina web. Para poder competir en el E-Commerce que cada vez, es mas esencial para poder mantener vigencia dentro del mercado.
 
 Además, se han creado programas y paginas web, que les han entregado a estas empresas herramientas, para poder facilitar sus funciones y además de poder respaldar su información, de esta forma entregando una mayor seguridad y respaldo en la base de datos de sus clientes.
@@ -18,7 +17,7 @@ Debido a esto nuestro proyecto final, lo hemos enfocado en apoyar en sus necesid
 
 
 
-## Code Samples
+## Muestras de Codigo
 
 Este proyecto fue construido a través del diseño MVC (Modelo, Vista y Controlador) y en su estructura cuenta con los packages .config, .controller, .model.dao, .model.dto, .model.service, en los cuales contienen diferentes lineas de código que cumplen diferentes funciones, según lo que se necesita, como los siguientes:
 
@@ -70,7 +69,7 @@ EL siguiente ejemplo se trata de nuestro DAOimpl que esta mostrando como se trae
 
 
 
-## Installation
+## Instalacion
 
 Para hacer una correcta instalación asegurese de generar primero que nada la BBDD que fue señalada en un export.sql y tan solo cuando eso este listo, deberas crear un usuario en la tabla users segun tus necesidades y deberás generar una contraseña encriptada en Bcryp  e insertarla en la sección de password de la respectiva tabla.
 
